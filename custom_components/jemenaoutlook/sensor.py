@@ -90,8 +90,8 @@ SENSOR_TYPES = {
     'this_week_consumption_offpeak': ['This week consumption offpeak', KILOWATT_HOUR, 'mdi:flash', None],
     'this_week_consumption_shoulder': ['This week consumption shoulder', KILOWATT_HOUR, 'mdi:flash', None],
     'this_week_consumption_controlled_load': ['This week consumption controlled load', KILOWATT_HOUR, 'mdi:flash', None],
-    'this_week_generation': ['This week generation', KILOWATT_HOUR, 'mdi:flash', TOTAL_STATE_CLASS_NAME, TOTAL_STATE_CLASS_NAME],
-    'this_week_cost_total': ['This week cost total', PRICE, 'mdi:currency-usd', TOTAL_STATE_CLASS_NAME, TOTAL_STATE_CLASS_NAME],
+    'this_week_generation': ['This week generation', KILOWATT_HOUR, 'mdi:flash', TOTAL_STATE_CLASS_NAME],
+    'this_week_cost_total': ['This week cost total', PRICE, 'mdi:currency-usd', TOTAL_STATE_CLASS_NAME],
     'this_week_cost_consumption': ['This week cost consumption', PRICE, 'mdi:currency-usd', TOTAL_STATE_CLASS_NAME],
     'this_week_cost_generation': ['This week cost generation', PRICE, 'mdi:currency-usd', None],
     'this_week_cost_difference': ['This week cost difference', PRICE, 'mdi:currency-usd', None],
@@ -103,7 +103,7 @@ SENSOR_TYPES = {
     'last_week_usage': ['Last week usage', KILOWATT_HOUR, 'mdi:flash', TOTAL_STATE_CLASS_NAME],
     'last_week_consumption': ['Last week consumption', KILOWATT_HOUR, 'mdi:flash', TOTAL_STATE_CLASS_NAME],
     'last_week_generation': ['Last week generation', KILOWATT_HOUR, 'mdi:flash', TOTAL_STATE_CLASS_NAME],
-    'this_month_user_type': ['This month user type', 'type', 'mdi:home-account'],
+    'this_month_user_type': ['This month user type', 'type', 'mdi:home-account', None],
     'this_month_usage': ['This month usage', KILOWATT_HOUR, 'mdi:flash', TOTAL_STATE_CLASS_NAME],
     'this_month_consumption': ['This month consumption', KILOWATT_HOUR, 'mdi:flash', TOTAL_STATE_CLASS_NAME],
     'this_month_consumption_peak': ['This month consumption peak', KILOWATT_HOUR, 'mdi:flash', TOTAL_STATE_CLASS_NAME],
@@ -525,4 +525,3 @@ class JemenaOutlookClient(object):
 
     def get_data(self):
         return self._data
-
