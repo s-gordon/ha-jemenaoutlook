@@ -50,76 +50,80 @@ REQUESTS_TIMEOUT = 15
 MIN_TIME_BETWEEN_UPDATES = timedelta(hours=24)
 SCAN_INTERVAL = timedelta(hours=24)
 
-SENSOR_TYPES = {
-    'yesterday_user_type': ['Yesterday user type', 'type', 'mdi:home-account'],
-    'yesterday_usage': ['Yesterday usage', KILOWATT_HOUR, 'mdi:flash'],
-    'yesterday_consumption': ['Yesterday consumption', KILOWATT_HOUR, 'mdi:flash'],
-    'yesterday_consumption_peak': ['Yesterday consumption peak', KILOWATT_HOUR, 'mdi:flash'],
-    'yesterday_consumption_offpeak': ['Yesterday consumption offpeak', KILOWATT_HOUR, 'mdi:flash'],
-    'yesterday_consumption_shoulder': ['Yesterday consumption shoulder', KILOWATT_HOUR, 'mdi:flash'],
-    'yesterday_consumption_controlled_load': ['Yesterday consumption controlled load', KILOWATT_HOUR, 'mdi:flash'],
-    'yesterday_generation': ['Yesterday generation', KILOWATT_HOUR, 'mdi:flash'],
-    'yesterday_cost_total': ['Yesterday cost total', PRICE, 'mdi:currency-usd'],
-    'yesterday_cost_consumption': ['Yesterday cost consumption', PRICE, 'mdi:currency-usd'],
-    'yesterday_cost_generation': ['Yesterday cost generation', PRICE, 'mdi:currency-usd'],
-    'yesterday_cost_difference': ['Yesterday cost difference', PRICE, 'mdi:currency-usd'],
-    'yesterday_percentage_difference': ['Yesterday percentage difference', KILOWATT_HOUR, 'mdi:percent'],
-    'yesterday_difference_message': ['Yesterday difference message', 'text', 'mdi:clipboard-text'],
-    'yesterday_consumption_difference': ['Yesterday consumption difference', KILOWATT_HOUR, 'mdi:flash'],
-    'yesterday_consumption_change': ['Yesterday consumption change', KILOWATT_HOUR, 'mdi:swap-vertical'],
-    'yesterday_suburb_average': ['Yesterday suburb average', KILOWATT_HOUR, 'mdi:flash'],
-    'previous_day_usage': ['Previous day usage', KILOWATT_HOUR, 'mdi:flash'],
-    'previous_day_consumption': ['Previous day consumption', KILOWATT_HOUR, 'mdi:flash'],
-    'previous_day_generation': ['Previous day generation', KILOWATT_HOUR, 'mdi:flash'],
-    'supply_charge': ['Supply charge', PRICE, 'mdi:currency-usd'],
-    'weekday_peak_cost': ['Weekday peak cost', PRICE, 'mdi:currency-usd'],
-    'weekday_offpeak_cost': ['Weekday offpeak cost', PRICE, 'mdi:currency-usd'],
-    'weekday_shoulder_cost': ['Weekday shoulder cost', PRICE, 'mdi:currency-usd'],
-    'controlled_load_cost': ['Controlled load cost', PRICE, 'mdi:currency-usd'],
-    'weekend_offpeak_cost': ['Weekend offpeak cost', PRICE, 'mdi:currency-usd'],
-    'single_rate_cost': ['Single rate cost', PRICE, 'mdi:currency-usd'],
-    'generation_cost': ['Generation cost', PRICE, 'mdi:currency-usd'],
-    'this_week_user_type': ['This week user type', 'type', 'mdi:home-account'],
-    'this_week_usage': ['This week usage', KILOWATT_HOUR, 'mdi:flash'],
-    'this_week_consumption': ['This week consumption', KILOWATT_HOUR, 'mdi:flash'],
-    'this_week_consumption_peak': ['This week consumption peak', KILOWATT_HOUR, 'mdi:flash'],
-    'this_week_consumption_offpeak': ['This week consumption offpeak', KILOWATT_HOUR, 'mdi:flash'],
-    'this_week_consumption_shoulder': ['This week consumption shoulder', KILOWATT_HOUR, 'mdi:flash'],
-    'this_week_consumption_controlled_load': ['This week consumption controlled load', KILOWATT_HOUR, 'mdi:flash'],
-    'this_week_generation': ['This week generation', KILOWATT_HOUR, 'mdi:flash'],
-    'this_week_cost_total': ['This week cost total', PRICE, 'mdi:currency-usd'],
-    'this_week_cost_consumption': ['This week cost consumption', PRICE, 'mdi:currency-usd'],
-    'this_week_cost_generation': ['This week cost generation', PRICE, 'mdi:currency-usd'],
-    'this_week_cost_difference': ['This week cost difference', PRICE, 'mdi:currency-usd'],
-    'this_week_percentage_difference': ['This week percentage difference', KILOWATT_HOUR, 'mdi:percent'],
-    'this_week_difference_message': ['This week difference message', 'text', 'mdi:clipboard-text'],
-    'this_week_consumption_difference': ['This week consumption difference', KILOWATT_HOUR, 'mdi:flash'],
-    'this_week_consumption_change': ['This week consumption change', KILOWATT_HOUR, 'mdi:swap-vertical'],
-    'this_week_suburb_average': ['This week suburb average', KILOWATT_HOUR, 'mdi:flash'],
-    'last_week_usage': ['Last week usage', KILOWATT_HOUR, 'mdi:flash'],
-    'last_week_consumption': ['Last week consumption', KILOWATT_HOUR, 'mdi:flash'],
-    'last_week_generation': ['Last week generation', KILOWATT_HOUR, 'mdi:flash'],
-    'this_month_user_type': ['This month user type', 'type', 'mdi:home-account'],
-    'this_month_usage': ['This month usage', KILOWATT_HOUR, 'mdi:flash'],
-    'this_month_consumption': ['This month consumption', KILOWATT_HOUR, 'mdi:flash'],
-    'this_month_consumption_peak': ['This month consumption peak', KILOWATT_HOUR, 'mdi:flash'],
-    'this_month_consumption_offpeak': ['This month consumption offpeak', KILOWATT_HOUR, 'mdi:flash'],
-    'this_month_consumption_shoulder': ['This month consumption shoulder', KILOWATT_HOUR, 'mdi:flash'],
-    'this_month_consumption_controlled_load': ['This month consumption controlled load', KILOWATT_HOUR, 'mdi:flash'],
-    'this_month_generation': ['This month generation', KILOWATT_HOUR, 'mdi:flash'],
-    'this_month_cost_total': ['This month cost total', PRICE, 'mdi:currency-usd'],
-    'this_month_cost_consumption': ['This month cost consumption', PRICE, 'mdi:currency-usd'],
-    'this_month_cost_generation': ['This month cost generation', PRICE, 'mdi:currency-usd'],
-    'this_month_cost_difference': ['This month cost difference', PRICE, 'mdi:currency-usd'],
-    'this_month_percentage_difference': ['This month percentage difference', KILOWATT_HOUR, 'mdi:percent'],
-    'this_month_difference_message': ['This month difference message', 'text', 'mdi:clipboard-text'],
-    'this_month_consumption_difference': ['This month consumption difference', KILOWATT_HOUR, 'mdi:flash'],
-    'this_month_consumption_change': ['This month consumption change', KILOWATT_HOUR, 'mdi:swap-vertical'],
-    'this_month_suburb_average': ['This month suburb average', KILOWATT_HOUR, 'mdi:flash'],
+MEASUREMENT_CLASS_NAME = 'measurement'
+TOTAL_STATE_CLASS_NAME = 'total'
+TOTAL_INCREASING_CLASS_NAME = 'total_increasing'
 
-    'last_month_usage': ['Last month usage', KILOWATT_HOUR, 'mdi:flash'],
-    'last_month_consumption': ['Last month consumption', KILOWATT_HOUR, 'mdi:flash'],
-    'last_month_generation': ['Last month generation', KILOWATT_HOUR, 'mdi:flash'],
+SENSOR_TYPES = {
+    'yesterday_user_type': ['Yesterday user type', 'type', 'mdi:home-account', None],
+    'yesterday_usage': ['Yesterday usage', KILOWATT_HOUR, 'mdi:flash', TOTAL_STATE_CLASS_NAME],
+    'yesterday_consumption': ['Yesterday consumption', KILOWATT_HOUR, 'mdi:flash', TOTAL_STATE_CLASS_NAME],
+    'yesterday_consumption_peak': ['Yesterday consumption peak', KILOWATT_HOUR, 'mdi:flash', None],
+    'yesterday_consumption_offpeak': ['Yesterday consumption offpeak', KILOWATT_HOUR, 'mdi:flash', None],
+    'yesterday_consumption_shoulder': ['Yesterday consumption shoulder', KILOWATT_HOUR, 'mdi:flash', None],
+    'yesterday_consumption_controlled_load': ['Yesterday consumption controlled load', KILOWATT_HOUR, 'mdi:flash', None],
+    'yesterday_generation': ['Yesterday generation', KILOWATT_HOUR, 'mdi:flash', None],
+    'yesterday_cost_total': ['Yesterday cost total', PRICE, 'mdi:currency-usd', None],
+    'yesterday_cost_consumption': ['Yesterday cost consumption', PRICE, 'mdi:currency-usd', None],
+    'yesterday_cost_generation': ['Yesterday cost generation', PRICE, 'mdi:currency-usd', None],
+    'yesterday_cost_difference': ['Yesterday cost difference', PRICE, 'mdi:currency-usd', None],
+    'yesterday_percentage_difference': ['Yesterday percentage difference', KILOWATT_HOUR, 'mdi:percent', None],
+    'yesterday_difference_message': ['Yesterday difference message', 'text', 'mdi:clipboard-text', None],
+    'yesterday_consumption_difference': ['Yesterday consumption difference', KILOWATT_HOUR, 'mdi:flash', None],
+    'yesterday_consumption_change': ['Yesterday consumption change', KILOWATT_HOUR, 'mdi:swap-vertical', None],
+    'yesterday_suburb_average': ['Yesterday suburb average', KILOWATT_HOUR, 'mdi:flash', None],
+    'previous_day_usage': ['Previous day usage', KILOWATT_HOUR, 'mdi:flash', None],
+    'previous_day_consumption': ['Previous day consumption', KILOWATT_HOUR, 'mdi:flash', None],
+    'previous_day_generation': ['Previous day generation', KILOWATT_HOUR, 'mdi:flash', None],
+    'supply_charge': ['Supply charge', PRICE, 'mdi:currency-usd', None],
+    'weekday_peak_cost': ['Weekday peak cost', PRICE, 'mdi:currency-usd', None],
+    'weekday_offpeak_cost': ['Weekday offpeak cost', PRICE, 'mdi:currency-usd', None],
+    'weekday_shoulder_cost': ['Weekday shoulder cost', PRICE, 'mdi:currency-usd', None],
+    'controlled_load_cost': ['Controlled load cost', PRICE, 'mdi:currency-usd', None],
+    'weekend_offpeak_cost': ['Weekend offpeak cost', PRICE, 'mdi:currency-usd', None],
+    'single_rate_cost': ['Single rate cost', PRICE, 'mdi:currency-usd', None],
+    'generation_cost': ['Generation cost', PRICE, 'mdi:currency-usd', None],
+    'this_week_user_type': ['This week user type', 'type', 'mdi:home-account', None],
+    'this_week_usage': ['This week usage', KILOWATT_HOUR, 'mdi:flash', TOTAL_STATE_CLASS_NAME],
+    'this_week_consumption': ['This week consumption', KILOWATT_HOUR, 'mdi:flash', TOTAL_STATE_CLASS_NAME],
+    'this_week_consumption_peak': ['This week consumption peak', KILOWATT_HOUR, 'mdi:flash', None],
+    'this_week_consumption_offpeak': ['This week consumption offpeak', KILOWATT_HOUR, 'mdi:flash', None],
+    'this_week_consumption_shoulder': ['This week consumption shoulder', KILOWATT_HOUR, 'mdi:flash', None],
+    'this_week_consumption_controlled_load': ['This week consumption controlled load', KILOWATT_HOUR, 'mdi:flash', None],
+    'this_week_generation': ['This week generation', KILOWATT_HOUR, 'mdi:flash', TOTAL_STATE_CLASS_NAME, TOTAL_STATE_CLASS_NAME],
+    'this_week_cost_total': ['This week cost total', PRICE, 'mdi:currency-usd', TOTAL_STATE_CLASS_NAME, TOTAL_STATE_CLASS_NAME],
+    'this_week_cost_consumption': ['This week cost consumption', PRICE, 'mdi:currency-usd', TOTAL_STATE_CLASS_NAME],
+    'this_week_cost_generation': ['This week cost generation', PRICE, 'mdi:currency-usd', None],
+    'this_week_cost_difference': ['This week cost difference', PRICE, 'mdi:currency-usd', None],
+    'this_week_percentage_difference': ['This week percentage difference', KILOWATT_HOUR, 'mdi:percent', None],
+    'this_week_difference_message': ['This week difference message', 'text', 'mdi:clipboard-text', None],
+    'this_week_consumption_difference': ['This week consumption difference', KILOWATT_HOUR, 'mdi:flash', None],
+    'this_week_consumption_change': ['This week consumption change', KILOWATT_HOUR, 'mdi:swap-vertical', None],
+    'this_week_suburb_average': ['This week suburb average', KILOWATT_HOUR, 'mdi:flash', MEASUREMENT_CLASS_NAME],
+    'last_week_usage': ['Last week usage', KILOWATT_HOUR, 'mdi:flash', TOTAL_STATE_CLASS_NAME],
+    'last_week_consumption': ['Last week consumption', KILOWATT_HOUR, 'mdi:flash', TOTAL_STATE_CLASS_NAME],
+    'last_week_generation': ['Last week generation', KILOWATT_HOUR, 'mdi:flash', TOTAL_STATE_CLASS_NAME],
+    'this_month_user_type': ['This month user type', 'type', 'mdi:home-account'],
+    'this_month_usage': ['This month usage', KILOWATT_HOUR, 'mdi:flash', TOTAL_STATE_CLASS_NAME],
+    'this_month_consumption': ['This month consumption', KILOWATT_HOUR, 'mdi:flash', TOTAL_STATE_CLASS_NAME],
+    'this_month_consumption_peak': ['This month consumption peak', KILOWATT_HOUR, 'mdi:flash', TOTAL_STATE_CLASS_NAME],
+    'this_month_consumption_offpeak': ['This month consumption offpeak', KILOWATT_HOUR, 'mdi:flash', None],
+    'this_month_consumption_shoulder': ['This month consumption shoulder', KILOWATT_HOUR, 'mdi:flash', None],
+    'this_month_consumption_controlled_load': ['This month consumption controlled load', KILOWATT_HOUR, 'mdi:flash', None],
+    'this_month_generation': ['This month generation', KILOWATT_HOUR, 'mdi:flash', TOTAL_STATE_CLASS_NAME],
+    'this_month_cost_total': ['This month cost total', PRICE, 'mdi:currency-usd', TOTAL_STATE_CLASS_NAME],
+    'this_month_cost_consumption': ['This month cost consumption', PRICE, 'mdi:currency-usd', TOTAL_STATE_CLASS_NAME],
+    'this_month_cost_generation': ['This month cost generation', PRICE, 'mdi:currency-usd', TOTAL_STATE_CLASS_NAME],
+    'this_month_cost_difference': ['This month cost difference', PRICE, 'mdi:currency-usd', None],
+    'this_month_percentage_difference': ['This month percentage difference', KILOWATT_HOUR, 'mdi:percent', None],
+    'this_month_difference_message': ['This month difference message', 'text', 'mdi:clipboard-text', None],
+    'this_month_consumption_difference': ['This month consumption difference', KILOWATT_HOUR, 'mdi:flash', None],
+    'this_month_consumption_change': ['This month consumption change', KILOWATT_HOUR, 'mdi:swap-vertical', None],
+    'this_month_suburb_average': ['This month suburb average', KILOWATT_HOUR, 'mdi:flash', MEASUREMENT_CLASS_NAME],
+
+    'last_month_usage': ['Last month usage', KILOWATT_HOUR, 'mdi:flash', TOTAL_STATE_CLASS_NAME],
+    'last_month_consumption': ['Last month consumption', KILOWATT_HOUR, 'mdi:flash', TOTAL_STATE_CLASS_NAME],
+    'last_month_generation': ['Last month generation', KILOWATT_HOUR, 'mdi:flash', TOTAL_STATE_CLASS_NAME],
 }
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
@@ -146,7 +150,7 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
     try:
         jemenaoutlook_data = JemenaOutlookData(username, password)
         jemenaoutlook_data.get_data()
-        
+
     except requests.exceptions.HTTPError as error:
         _LOGGER.error("Failt login: %s", error)
         return False
@@ -170,6 +174,7 @@ class JemenaOutlookSensor(Entity):
         self._name = SENSOR_TYPES[sensor_type][0]
         self._unit_of_measurement = SENSOR_TYPES[sensor_type][1]
         self._icon = SENSOR_TYPES[sensor_type][2]
+        self._state_class = SENSOR_TYPES[sensor_type][3]
         self.jemenaoutlook_data = jemenaoutlook_data
         self._state = None
 
@@ -180,7 +185,7 @@ class JemenaOutlookSensor(Entity):
                 self._state = self.jemenaoutlook_data.data[self.type]
             else:
                 self._state = round(self.jemenaoutlook_data.data[self.type], 2)
-                
+
 
     @property
     def name(self):
@@ -191,6 +196,13 @@ class JemenaOutlookSensor(Entity):
     def state(self):
         """Return the state of the sensor."""
         return self._state
+
+    @property
+    def state_class(self):
+        """
+        Return the state_class of the sensor for energy stats
+        """
+        return self._state_class
 
     @property
     def unit_of_measurement(self):
@@ -292,13 +304,13 @@ class JemenaOutlookClient(object):
 
         except OSError as e:
             raise JemenaOutlookError("Cannot submit login form {0}".format(e.errno))
-        
+
         if raw_res.status_code != 200:
             raise JemenaOutlookError("Login error: Bad HTTP status code. {}".format(raw_res.status_code))
 
         return True
 
-    
+
     def _get_tariffs(self):
         """Get tariff data. This data must be setup by the user first and is not automatically available."""
 
@@ -314,24 +326,24 @@ class JemenaOutlookClient(object):
         tariff_script = soup.find('script', text=re.compile('var tariff = '))
 
         if tariff_script is not None:
-            
+
             json_text = re.search(r'^\s*var tariff =\s*({.*?})\s*;\s*$', tariff_script.string, flags=re.DOTALL | re.MULTILINE).group(1)
             data = json.loads(json_text)
-        
+
             tariff_data = {
                 "supply_charge": self._strip_currency(data["supplyCharge"]),
                 "weekday_peak_cost": self._strip_currency(data["weekdayPeakCost"]),
                 "weekday_offpeak_cost": self._strip_currency(data["weekdayOffpeakCost"]),
                 "weekday_shoulder_cost": self._strip_currency(data["weekdayShoulderCost"]),
                 "controlled_load_cost": self._strip_currency(data["controlledLoadCost"]),
-                "weekend_offpeak_cost": self._strip_currency(data["weekendOffpeakCost"]),            
+                "weekend_offpeak_cost": self._strip_currency(data["weekendOffpeakCost"]),
                 "single_rate_cost": self._strip_currency(data["singleRateCost"]),
                 "generation_cost": self._strip_currency(data["generationCost"]),
                 }
 
         return tariff_data
-    
-    
+
+
     def _get_daily_data(self, days_ago):
         """Get daily data."""
 
@@ -354,7 +366,7 @@ class JemenaOutlookClient(object):
 
         daily_data = self._extract_period_data(json_output , 'yesterday', 'previous_day')
 
-        return daily_data      
+        return daily_data
 
 
 
@@ -379,7 +391,7 @@ class JemenaOutlookClient(object):
             raise JemenaOutlookError("Could not get daily data for selectedPeriod")
 
         _LOGGER.debug("Jemena outlook weekly data: %s", json_output)
-        
+
         weekly_data = self._extract_period_data(json_output, 'this_week', 'last_week')
 
         return weekly_data
@@ -406,7 +418,7 @@ class JemenaOutlookClient(object):
             raise JemenaOutlookError("Could not get daily data for selectedPeriod")
 
         _LOGGER.debug("Jemena outlook monthly data: %s", json_output)
-        
+
         monthly_data = self._extract_period_data(json_output, 'this_month', 'last_month')
 
         return monthly_data
@@ -419,9 +431,9 @@ class JemenaOutlookClient(object):
         kwhPercentageDifference = json_data.get('kwhPercentageDifference')
 
         consumptionDifference = json_data.get('consumptionDifferenceMessage')
-        
-        selectedPeriod = json_data.get('selectedPeriod')        	
-        
+
+        selectedPeriod = json_data.get('selectedPeriod')
+
         netConsumption = selectedPeriod['netConsumption']
         averageNetConsumptionPerSubPeriod = selectedPeriod['averageNetConsumptionPerSubPeriod']
         peakConsumption = self._sum_period_array(selectedPeriod['consumptionData']['peak'], 3)
@@ -489,13 +501,13 @@ class JemenaOutlookClient(object):
 
     def fetch_data(self):
         """Get the latest data from Jemena Outlook."""
-        
+
         # setup requests session
         self._session = requests.Session()
 
         # Get login page
         login_url = self._get_login_page()
-        
+
         # Post login page
         self._post_login_page(login_url)
 

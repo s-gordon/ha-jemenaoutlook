@@ -4,8 +4,8 @@
   "documentation": "https://github.com/s-gordon/ha-jemenaoutlook",
   "issue_tracker": "https://github.com/s-gordon/ha-jemenaoutlook/issues",
   "dependencies": [],
-  "version": "1.0.2",
-  "codeowners": ["@mvandersteen"],
+  "version": "1.0.3",
+  "codeowners": ["@s-gordon"],
   "requirements": [],
   "iot_class": "cloud_polling"
 }
