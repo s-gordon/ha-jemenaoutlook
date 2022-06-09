@@ -59,16 +59,14 @@ PERIOD_URL = "{}/electricityView/period".format(HOST)
 
 DEFAULT_NAME = "JemenaOutlook"
 
-# SENSORS: tuple[SensorEntityDescription, ...] = SensorEntityDescription(
-#     key="yesterday_consumption",
-#     name="Yesterday consumption",
-#     device_class=SensorDeviceClass.ENERGY,
-#     native_unit_of_measurement=ENERGY_KILO_WATT_HOUR,
-#     state_class=SensorStateClass.MEASUREMENT,
-# )
-
 SENSOR_TYPES = {
-    "yesterday_user_type": ["Yesterday user type", "type", "mdi:home-account", None],
+    "yesterday_user_type": [
+        "Yesterday user type",
+        "type",
+        "mdi:home-account",
+        None,
+        None,
+    ],
     "yesterday_usage": [
         "Yesterday usage",
         ENERGY_KILO_WATT_HOUR,
